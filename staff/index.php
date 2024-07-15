@@ -79,35 +79,30 @@
     <h1>今日のメニューを編集</h1>
     <div class="signage">
       <?php
-      for ($i = 0; $i < 5; $i++) {
-        echo '
-          <div id="menu' . $i . '"  class="menu">
-            <img src="../src/img/menu/' . $menu[$today[$i]["status"]]["photo"] . '">
-            <span class="menuName">' .
-          $menu[$today[$i]["status"]]["name"] . '
-              <br>
-            </span>
-            <span class="menuPrice">' .
-          $menu[$today[$i]["status"]]["price"] . '円
-            </span>
-          </div>
-        ';
-      }
+        for ($i = 0; $i < 5; $i++) {
+          echo '
+            <div id="menu' . $i . '" class="menu">
+              <img src="../src/img/menu/' . $menu[$today[$i]["status"]]["photo"] . '">
+              <span class="menuName">' . $menu[$today[$i]["status"]]["name"] . '</span>
+              <span class="menuPrice">' . $menu[$today[$i]["status"]]["price"] . '円</span>
+            </div>
+          ';
+        }
       ?>
     </div>
 
     <div id="select">
       <form id="selectMenu" method="post" action="send.php">
         <?php
-        for ($i = 0; $i < 5; $i++) {
-          echo '
-              <select name="menu' . $i  . '" id="selectMenu' . $i . '">
-                <option hidden>写真を選択</option>';
-          for ($j = 0; $j <= 10; $j++) {
-            echo '<option value="' . $j . '">' . $menu[$j]["name"] . '</option>';
+          for ($i = 0; $i < 5; $i++) {
+            echo '
+                <select name="menu' . $i . '" id="selectMenu' . $i . '">
+                  <option>写真を選択</option>';
+              for ($j = 0; $j <= 10; $j++) {
+                echo '<option value="' . $j . '">' . $menu[$j]["name"] . '</option>';
+              }
+            echo '</select>';
           }
-          echo '</select>';
-        }
         ?>
       </form>
       <input id="selectMenuSubmit" type="submit" form="selectMenu" value="更新">

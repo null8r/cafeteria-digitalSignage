@@ -75,13 +75,8 @@
           echo '
             <div class="menu">
               <img src="./src/img/menu/' . $menu[$today[$i]["status"]]["photo"] . '">
-              <span class="menuName">' .
-                $menu[$today[$i]["status"]]["name"] . '
-                <br>
-              </span>
-              <span class="menuPrice">' .
-                $menu[$today[$i]["status"]]["price"] . '円
-              </span>
+              <span class="menuName">' . $menu[$today[$i]["status"]]["name"] . '</span>
+              <span class="menuPrice">' . $menu[$today[$i]["status"]]["price"] . '円</span>
             </div>
           ';
         }

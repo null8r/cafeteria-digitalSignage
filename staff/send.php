@@ -6,13 +6,25 @@
 
   $PDO = new PDO($db, $user, $passwd);
 
-  //前画面のformから受け取る
   $table = 'today-menu';
-
-  for($i=1; $i<=5; $i++){
+  
+  $j=0;
+  
+  for($i=0; $i<5; $i++){
+    //前画面のformから受け取る
     $menu = $_POST['menu'.$i];
-    $sql = "UPDATE `" . $table . "` SET `status`='" . $menu . "' WHERE `" . $table . "`.`id`=" . $i;
-    $stmt = $PDO->query($sql);
+    if(is_numeric($menu)){
+      $sql = "UPDATE `" . $table . "` SET `status`='" . $menu . "' WHERE `" . $table . "`.`id`=" . $i+1;
+      $stmt = $PDO->query($sql);
+      $j=1;
+    }
   }
-  echo "更新しました。\n前のページに戻るかこのページを閉じてください。";
+  if($j==1){
+    echo "更新しました。";
+  }
+  else{
+    echo "編集内容が無かったため、更新を行いませんでした。";
+  }
+  
+  echo "<br>前のページに戻るかこのページを閉じてください。";
 ?>

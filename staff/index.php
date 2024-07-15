@@ -15,6 +15,14 @@
   <link href="../src/css/main.css" rel="stylesheet">
   <!-- <link href="./src/css/staff.css" rel="stylesheet"> -->
 
+  <style>
+    body {
+      text-align: center;
+      background-image: url(../src/img/today_menu.png);
+      background-repeat: space;
+    }
+  </style>
+
   <title>学食デジタルサイネージ / デザイン思考Q班</title>
 </head>
 
@@ -65,156 +73,42 @@
 
   $res_today = $PDO->query($sql_today);
   $today = $res_today->fetchAll();
-
-  $i = 0;
   ?>
 
-  <main id="top" class="glass-filter">
+  <main id="top">
     <h1>今日のメニューを編集</h1>
     <div class="signage">
-      <div id="menu1" class="menu">
-        <img src="../src/img/<?php echo $menu[$today[$i]['status']]['photo'] ?>">
-        <span class="menuName">
-          <?php
-          echo $menu[$today[$i]['status']]['name'];
-          echo "<br>";
-          ?>
-        </span>
-        <span class="menuPrice">
-          <?php
-          echo $menu[$today[$i]['status']]['price'] . '円';
-          $i++;
-          ?>
-        </span>
-      </div>
-      <div id="menu2" class="menu">
-        <img src="../src/img/<?php echo $menu[$today[$i]['status']]['photo'] ?>">
-        <span class="menuName">
-          <?php
-          echo $menu[$today[$i]['status']]['name'];
-          echo "<br>";
-          ?>
-        </span>
-        <span class="menuPrice">
-          <?php
-          echo $menu[$today[$i]['status']]['price'] . '円';
-          $i++;
-          ?>
-        </span>
-      </div>
-      <div id="menu3" class="menu">
-        <img src="../src/img/<?php echo $menu[$today[$i]['status']]['photo'] ?>">
-        <span class="menuName">
-          <?php
-          echo $menu[$today[$i]['status']]['name'];
-          echo "<br>";
-          ?>
-        </span>
-        <span class="menuPrice">
-          <?php
-          echo $menu[$today[$i]['status']]['price'] . '円';
-          $i++;
-          ?>
-        </span>
-      </div>
-      <div id="menu4" class="menu">
-        <img src="../src/img/<?php echo $menu[$today[$i]['status']]['photo'] ?>">
-        <span class="menuName">
-          <?php
-          echo $menu[$today[$i]['status']]['name'];
-          echo "<br>";
-          ?>
-        </span>
-        <span class="menuPrice">
-          <?php
-          echo $menu[$today[$i]['status']]['price'] . '円';
-          $i++;
-          ?>
-        </span>
-      </div>
-      <div id="menu5" class="menu">
-        <img src="../src/img/<?php echo $menu[$today[$i]['status']]['photo'] ?>">
-        <span class="menuName">
-          <?php
-          echo $menu[$today[$i]['status']]['name'];
-          echo "<br>";
-          ?>
-        </span>
-        <span class="menuPrice">
-          <?php
-          echo $menu[$today[$i]['status']]['price'] . '円';
-          ?>
-        </span>
-      </div>
+      <?php
+      for ($i = 0; $i < 5; $i++) {
+        echo '
+          <div id="menu' . $i . '"  class="menu">
+            <img src="../src/img/menu/' . $menu[$today[$i]["status"]]["photo"] . '">
+            <span class="menuName">' .
+          $menu[$today[$i]["status"]]["name"] . '
+              <br>
+            </span>
+            <span class="menuPrice">' .
+          $menu[$today[$i]["status"]]["price"] . '円
+            </span>
+          </div>
+        ';
+      }
+      ?>
     </div>
 
     <div id="select">
       <form id="selectMenu" method="post" action="send.php">
-        <select name="menu1">
-          <option value="0">カレー</option>
-          <option value="1">台湾ラーメン</option>
-          <option value="2">ナポリタン</option>
-          <option value="3">エビカツ</option>
-          <option value="4">スターゲイジーパイ</option>
-          <option value="5">うどん</option>
-          <option value="6">ガパオライス</option>
-          <option value="7">生姜焼き</option>
-          <option value="8">白身魚</option>
-          <option value="9">唐揚げ</option>
-          <option value="10">そば</option>
-        </select>
-        <select name="menu2">
-          <option value="0">カレー</option>
-          <option value="1">台湾ラーメン</option>
-          <option value="2">ナポリタン</option>
-          <option value="3">エビカツ</option>
-          <option value="4">スターゲイジーパイ</option>
-          <option value="5">うどん</option>
-          <option value="6">ガパオライス</option>
-          <option value="7">生姜焼き</option>
-          <option value="8">白身魚</option>
-          <option value="9">唐揚げ</option>
-          <option value="10">そば</option>
-        </select>
-        <select name="menu3">
-          <option value="0">カレー</option>
-          <option value="1">台湾ラーメン</option>
-          <option value="2">ナポリタン</option>
-          <option value="3">エビカツ</option>
-          <option value="4">スターゲイジーパイ</option>
-          <option value="5">うどん</option>
-          <option value="6">ガパオライス</option>
-          <option value="7">生姜焼き</option>
-          <option value="8">白身魚</option>
-          <option value="9">唐揚げ</option>
-          <option value="10">そば</option>
-        </select>
-        <select name="menu4">
-          <option value="0">カレー</option>
-          <option value="1">台湾ラーメン</option>
-          <option value="2">ナポリタン</option>
-          <option value="3">エビカツ</option>
-          <option value="4">スターゲイジーパイ</option>
-          <option value="5">うどん</option>
-          <option value="6">ガパオライス</option>
-          <option value="7">生姜焼き</option>
-          <option value="8">白身魚</option>
-          <option value="9">唐揚げ</option>
-          <option value="10">そば</option>
-        </select>
-        <select name="menu5">
-          <option value="0">カレー</option>
-          <option value="1">台湾ラーメン</option>
-          <option value="2">ナポリタン</option>
-          <option value="3">エビカツ</option>
-          <option value="4">スターゲイジーパイ</option>
-          <option value="5">うどん</option>
-          <option value="6">ガパオライス</option>
-          <option value="7">生姜焼き</option>
-          <option value="8">白身魚</option>
-          <option value="9">唐揚げ</option>
-          <option value="10">そば</option>
-        </select>
+        <?php
+        for ($i = 0; $i < 5; $i++) {
+          echo '
+              <select name="menu' . $i  . '" id="selectMenu' . $i . '">
+                <option hidden>写真を選択</option>';
+          for ($j = 0; $j <= 10; $j++) {
+            echo '<option value="' . $j . '">' . $menu[$j]["name"] . '</option>';
+          }
+          echo '</select>';
+        }
+        ?>
       </form>
       <input id="selectMenuSubmit" type="submit" form="selectMenu" value="更新">
     </div>
@@ -237,6 +131,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
   <script src="../src/js/main.js"></script>
+  <script src="./src/js/staff.js"></script>
 </body>
 
 </html>

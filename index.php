@@ -70,80 +70,17 @@
 
   <main id="top" class="glass-filter">
     <div class="signage">
-      <div id="menu1" class="menu">
-        <img src="./src/img/<?php echo $menu[$today[$i]['status']]['photo'] ?>">
-        <span class="menuName">
-          <?php
-          echo $menu[$today[$i]['status']]['name'];
-          echo "<br>";
-          ?>
-        </span>
-        <span class="menuPrice">
-          <?php
-          echo $menu[$today[$i]['status']]['price'] . '円';
-          $i++;
-          ?>
-        </span>
-      </div>
-      <div id="menu2" class="menu">
-        <img src="./src/img/<?php echo $menu[$today[$i]['status']]['photo'] ?>">
-        <span class="menuName">
-          <?php
-          echo $menu[$today[$i]['status']]['name'];
-          echo "<br>";
-          ?>
-        </span>
-        <span class="menuPrice">
-          <?php
-          echo $menu[$today[$i]['status']]['price'] . '円';
-          $i++;
-          ?>
-        </span>
-      </div>
-      <div id="menu3" class="menu">
-        <img src="./src/img/<?php echo $menu[$today[$i]['status']]['photo'] ?>">
-        <span class="menuName">
-          <?php
-          echo $menu[$today[$i]['status']]['name'];
-          echo "<br>";
-          ?>
-        </span>
-        <span class="menuPrice">
-          <?php
-          echo $menu[$today[$i]['status']]['price'] . '円';
-          $i++;
-          ?>
-        </span>
-      </div>
-      <div id="menu4" class="menu">
-        <img src="./src/img/<?php echo $menu[$today[$i]['status']]['photo'] ?>">
-        <span class="menuName">
-          <?php
-          echo $menu[$today[$i]['status']]['name'];
-          echo "<br>";
-          ?>
-        </span>
-        <span class="menuPrice">
-          <?php
-          echo $menu[$today[$i]['status']]['price'] . '円';
-          $i++;
-          ?>
-        </span>
-      </div>
-      <div id="menu5" class="menu">
-        <img src="./src/img/<?php echo $menu[$today[$i]['status']]['photo'] ?>">
-        <span class="menuName">
-          <?php
-          echo $menu[$today[$i]['status']]['name'];
-          echo "<br>";
-          ?>
-        </span>
-        <span class="menuPrice">
-          <?php
-          echo $menu[$today[$i]['status']]['price'] . '円';
-          ?>
-        </span>
-      </div>
+      <?php 
+        for($i=0; $i<5; $i++){
+          echo '
+            <div class="menu">
+              <img src="./src/img/menu/' . $menu[$today[$i]["status"]]["photo"] . '">
+              <span class="menuName">' . $menu[$today[$i]["status"]]["name"] . '</span>
+              <span class="menuPrice">' . $menu[$today[$i]["status"]]["price"] . '円</span>
+            </div>
+          ';
+        }
+      ?>
     </div>
   </main>
 
